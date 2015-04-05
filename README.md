@@ -6,5 +6,9 @@ angular version of an awesome input field
 3. add module dependency 'slideInput'
 4. add directive
 ```html
-<slide-input ng-model="requiredField"></slide-input>
+<slide-input ng-model="requiredField" button="submit"></slide-input>
+```
+or you can add more custom things (you don't really need button, but it doesn't really make sense without it)
+```html
+<slide-input ng-model="requiredField" button="submit" focus="true"></slide-input>
 ```
