@@ -1,0 +1,99 @@
+slide-input {
+  display: block;
+  width: 100%; }
+
+.slideInput-box {
+  overflow: hidden;
+  display: block;
+  position: relative; }
+
+.slideInput-typeahead {
+  font-size: 1.4em;
+  margin: 0 1em;
+  color: #666;
+  transition: 0.5s; }
+
+.slideInput-typeaheadItem {
+  padding: 0.2em 0em;
+  cursor: pointer;
+  border-top: 1px solid #666;
+  transition: 0s;
+  opacity: 1;
+  max-height: 100px; }
+  .slideInput-typeaheadItem.ng-enter {
+    opacity: 0;
+    max-height: 0;
+    transition: 0.4s; }
+  .slideInput-typeaheadItem.ng-enter-active {
+    opacity: 1;
+    max-height: 100px; }
+  .slideInput-typeaheadItem.ng-leave-active {
+    opacity: 0;
+    max-height: 0; }
+  .slideInput-typeaheadItem:hover {
+    color: #333333;
+    transition: 0s; }
+  .slideInput-typeaheadItem-active {
+    color: black;
+    transition: 0s; }
+
+.slideInput {
+  display: block;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #666;
+  overflow: hidden;
+  position: relative;
+  webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d; }
+
+.slideInput-input {
+  position: relative;
+  display: block;
+  background: none;
+  outline: none;
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1.4em;
+  padding: 0.2em 1em;
+  color: #666;
+  border: 2px solid transparent;
+  background: transparent;
+  transition: 0.5s;
+  transition-timing-function: ease-in-out; }
+  .slideInput-input.suggest {
+    z-index: -1;
+    background: #fff;
+    position: absolute; }
+
+.slideInput-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  outline: none;
+  box-sizing: border-box;
+  background: #666;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1.4em;
+  padding: 0.2em 1em;
+  display: block;
+  border: 2px solid #fff;
+  cursor: pointer;
+  width: 20%;
+  transform: translate(100%, 0);
+  transition: 0.5s;
+  transition-timing-function: ease-in-out; }
+
+.slideInput.focus .slideInput-input, .slideInput.hasValue .slideInput-input {
+  width: 80%; }
+
+.slideInput.focus .slideInput-button, .slideInput.hasValue .slideInput-button {
+  transform: translate(0%, 0); }
+
+.slideInput.focus .slideInput-typeahead, .slideInput.hasValue .slideInput-typeahead {
+  margin-right: 2px; }
+
+/*# sourceMappingURL=slideInput.css.map */
