@@ -6,5 +6,5 @@ angular version of an awesome input field
 3. add module dependency 'slideInput'
 4. add directive
 ```html
-<slide-input></slide-input>
+<slide-input ng-model="requiredField"></slide-input>
 ```
