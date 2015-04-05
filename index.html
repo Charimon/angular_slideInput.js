@@ -2,15 +2,15 @@
   <head>
     <style>
       body { margin: 0; padding: 0; }
-      slide-input { top: 20%; width: 80%; display: block; }
+      slide-input { position:relative; top: 20%; width: 60%; display: block; margin: 0 auto; }
     </style>
     <link rel="stylesheet" media="screen" href="slideInput.css" />
   </head>
   <body ng-controller="AppController as app">
-    <slide-input ng-model="app.model"></slide-input>
+    <slide-input ng-model="app.model" button="submit" focus="true"></slide-input>
   </body>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js" ></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-sanitize.js" ></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular.js" ></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular-sanitize.js" ></script>
   <script type="text/javascript" src="slideInput.js" ></script>
 
   <script type="text/javascript" src="app.js" ></script>
