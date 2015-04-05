@@ -27,7 +27,7 @@
           "<button class='slideInput-button' ng-show='button' ng-click='_click()'>{{button}}</button>" +
         "</div>" +
         "<div class='slideInput-typeahead'>" +
-          "<div class='slideInput-typeaheadItem' ng-class='{\"slideInput-typeaheadItem-active\":typeaheadHoverIndex == ($index+1)}' ng-repeat='item in typeaheadData track by (item.id || $id(item))' ng-bind-html='typeaheadFormat({item:item, query:model})' ng-click='_typeaheadClick(item)'></div>" +
+          "<div class='slideInput-typeaheadItem' ng-class='{\"slideInput-typeaheadItem-active\":typeaheadHoverIndex == ($index+1)}' ng-repeat='item in typeaheadData track by (item.id || $id(item))' ng-bind-html='typeaheadFormat({item:item, query:model})' ng-click='_typeaheadClick(item)' ng-mouseover='_mouseover(item)' ng-mouseleave='_mouseleave(item)'></div>" +
         "</div>" +
         "<div class='slideInput-emptyTypeahead' ng-show='empty && (typeaheadData == null || typeaheadData.length == 0) && model.length > 1'><div class='slideInput-emptyTypeaheadText'>{{empty}}</div></div>" +
         "</div>",
@@ -36,11 +36,13 @@
         button: "@",
         placeholder: "@",
         model: '=ngModel',
+        change: '&',
         click: '&',
         focus: '=?',
         typeaheadData: '=?',
-        change: '&',
         typeaheadFormat: '&',
+        typeaheadHoverItem: '&',
+        typeaheadActiveItem:'&',
         suggestedFormat: '&',
         empty:'@'
       },
@@ -55,9 +57,12 @@
 
         $scope.updateSuggested = function(){
           if($scope.typeaheadHoverIndex > 0 && $scope.typeaheadData && $scope.typeaheadHoverIndex - 1 < $scope.typeaheadData.length){
-            $scope.suggested = $scope.suggestedFormat({item: $scope.typeaheadData[$scope.typeaheadHoverIndex - 1], query:$scope.model})
+            var item = $scope.typeaheadData[$scope.typeaheadHoverIndex - 1];
+            $scope.suggested = $scope.suggestedFormat({item: item, query:$scope.model});
+            $scope.typeaheadActiveItem({item: item});
           } else {
             $scope.suggested = null;
+            $scope.typeaheadActiveItem({item: null});
           }
         };
 
@@ -105,6 +110,14 @@
           $scope.typeaheadHoverIndex = 0;
           $scope.change({model:$scope.model});
           $scope.updateSuggested();
+          $scope.typeaheadHoverItem({item: null});
+        };
+
+        $scope._mouseover = function(item){
+          $scope.typeaheadHoverItem({item: item});
+        };
+        $scope._mouseleave = function(item){
+          $scope.typeaheadHoverItem({item: null});
         }
       }
     }
