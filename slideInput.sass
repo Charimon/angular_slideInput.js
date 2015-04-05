@@ -15,21 +15,38 @@ slide-input
   position: relative
 
 .slideInput-typeahead
-  overflow: hidden
   display: block
   position: relative
   font-size: 1.4em
   margin: 0 1em
   color: $color
+  max-height: 9.6em
+  overflow: auto
   transition: $timing
+
+.slideInput-emptyTypeahead
+  overflow: hidden
+  display: block
+  position: relative
+  font-size: 1.4em
+  margin: 0 1em
+  padding: 0.5em 0
+  border-top: 1px solid $borderColor
+  color: lighten($color, 20%)
+
+.slideInput-emptyTypeaheadText
+  font-size: 0.6em
+
 
 .slideInput-typeaheadItem
   padding: 0.2em 0em
   cursor: pointer
   border-top: 1px solid $borderColor
-  transition: 0s
+  font-size: 1em
   opacity: 1
+  background: #fff
   max-height: 100px
+  transition: 0s
 
   &.ng-enter
     opacity: 0

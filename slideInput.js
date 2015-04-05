@@ -22,25 +22,27 @@
       restrict: 'E',
       template: "<div class='slideInput' ng-class='{focus:focus, hasValue:model.length > 0}'>" +
         "<div class='slideInput-box'>" +
-        "<input type='text' class='slideInput-input suggest' placeholder='{{suggested}}' disabled />" +
-        "<input type='text' class='slideInput-input' placeholder='{{placeholder}}' ng-model='model' ng-focus='focus=true' ng-blur='focus=false' ng-keyup='_keyup($event)' ng-keydown='_keydown($event)' ng-change='_change()'/>" +
-        "<button class='slideInput-button' ng-show='button' ng-click='_click()'>{{button}}</button>" +
+          "<input type='text' class='slideInput-input suggest' placeholder='{{suggested}}' disabled />" +
+          "<input type='text' class='slideInput-input' placeholder='{{placeholder}}' ng-model='model' ng-focus='focus=true' ng-blur='focus=false' ng-keyup='_keyup($event)' ng-keydown='_keydown($event)' ng-change='_change()'/>" +
+          "<button class='slideInput-button' ng-show='button' ng-click='_click()'>{{button}}</button>" +
         "</div>" +
-        "<div class='slideInput-typeahead slideInput-box'>" +
+        "<div class='slideInput-typeahead'>" +
           "<div class='slideInput-typeaheadItem' ng-class='{\"slideInput-typeaheadItem-active\":typeaheadHoverIndex == ($index+1)}' ng-repeat='item in typeaheadData track by (item.id || $id(item))' ng-bind-html='typeaheadFormat({item:item, query:model})' ng-click='_typeaheadClick(item)'></div>" +
         "</div>" +
+        "<div class='slideInput-emptyTypeahead' ng-show='empty && (typeaheadData == null || typeaheadData.length == 0) && model.length > 1'><div class='slideInput-emptyTypeaheadText'>{{empty}}</div></div>" +
         "</div>",
       require: 'ngModel',
       scope: {
-        button: "@?",
-        placeholder: "@?",
+        button: "@",
+        placeholder: "@",
         model: '=ngModel',
         click: '&',
         focus: '=?',
-        typeaheadData: '=',
+        typeaheadData: '=?',
         change: '&',
         typeaheadFormat: '&',
-        suggestedFormat: '&'
+        suggestedFormat: '&',
+        empty:'@'
       },
       link: function($scope, element, attrs, ctrl) {
         $scope.typeaheadHoverIndex = 0;

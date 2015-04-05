@@ -7,21 +7,37 @@ slide-input {
   position: relative; }
 
 .slideInput-typeahead {
-  overflow: hidden;
   display: block;
   position: relative;
   font-size: 1.4em;
   margin: 0 1em;
   color: #666;
+  max-height: 9.6em;
+  overflow: auto;
   transition: 0.5s; }
+
+.slideInput-emptyTypeahead {
+  overflow: hidden;
+  display: block;
+  position: relative;
+  font-size: 1.4em;
+  margin: 0 1em;
+  padding: 0.5em 0;
+  border-top: 1px solid #666;
+  color: #999999; }
+
+.slideInput-emptyTypeaheadText {
+  font-size: 0.6em; }
 
 .slideInput-typeaheadItem {
   padding: 0.2em 0em;
   cursor: pointer;
   border-top: 1px solid #666;
-  transition: 0s;
+  font-size: 1em;
   opacity: 1;
-  max-height: 100px; }
+  background: #fff;
+  max-height: 100px;
+  transition: 0s; }
   .slideInput-typeaheadItem.ng-enter {
     opacity: 0;
     max-height: 0;
